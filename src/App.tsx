@@ -1,25 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import {Box, Paper, styled} from "@mui/material";
+import MyEventSource from "./components/MyEventSource/MyEventSource";
+import {MailOutline} from "@mui/icons-material";
 function App() {
+
+const Title = styled(Paper)`
+ background: blue;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  justify-content: center;
+  font-size: 24px;
+  letter-spacing: 0.07rem;
+  color: antiquewhite;
+  font-weight: 600;
+  margin-bottom: 20px;
+`
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box maxWidth='sm' >
+        <Title>
+            <MailOutline style={{ color: "#fff",marginRight: 20}}/>
+            My Messenger
+        </Title>
+       <MyEventSource/>
+    </Box>
   );
 }
 
