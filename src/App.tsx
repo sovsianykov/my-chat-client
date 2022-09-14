@@ -5,7 +5,7 @@ import {MailOutline} from "@mui/icons-material";
 function App() {
 
 const Title = styled(Paper)`
- background: blue;
+  background: blue;
   display: flex;
   align-items: center;
   height: 40px;
@@ -18,7 +18,7 @@ const Title = styled(Paper)`
 `
 
   return (
-    <Box maxWidth='sm' >
+    <Box maxWidth='sm' sx={{margin:"0 auto"}}>
         <Title>
             <MailOutline style={{ color: "#fff",marginRight: 20}}/>
             My Messenger
