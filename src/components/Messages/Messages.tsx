@@ -9,9 +9,9 @@ interface Props {
 const Messages: FunctionComponent<Props> = ({ messages }) => {
   return (
     <Box sx={{ display: "flex", flexDirection: "column-reverse" }}>
-        {messages.map((m) => (
-            <Message message={m} key={m.id} />
-        ))}
+      {messages.map((m) => (
+        <Message message={m} key={m.id} />
+      ))}
     </Box>
   );
 };

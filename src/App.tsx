@@ -1,30 +1,23 @@
-import React from 'react';
-import {Box, Paper, styled} from "@mui/material";
+import React, { useCallback, useEffect, useState } from "react";
 import MyEventSource from "./components/MyEventSource/MyEventSource";
-import {MailOutline} from "@mui/icons-material";
-function App() {
+import Login from "./components/Login/Login";
+import Context from "./Context";
+import "react-toastify/dist/ReactToastify.css";
+import MainTitle from "./components/Title/MainTitle";
 
-const Title = styled(Paper)`
-  background: blue;
-  display: flex;
-  align-items: center;
-  height: 40px;
-  justify-content: center;
-  font-size: 24px;
-  letter-spacing: 0.07rem;
-  color: antiquewhite;
-  font-weight: 600;
-  margin-bottom: 20px;
-`
+function App() {
+  const [isLogged, setIsLogged] = useState(false);
+  useEffect(() => {}, []);
+
+  const onLoginHandler = useCallback((isAuth: boolean) => {
+    setIsLogged(isAuth);
+  }, []);
 
   return (
-    <Box maxWidth='sm' sx={{margin:"0 auto"}}>
-        <Title>
-            <MailOutline style={{ color: "#fff",marginRight: 20}}/>
-            My Messenger
-        </Title>
-       <MyEventSource/>
-    </Box>
+    <Context>
+      <MainTitle />
+      {!isLogged ? <Login onLogin={onLoginHandler} /> : <MyEventSource />}
+    </Context>
   );
 }
 
